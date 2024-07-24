@@ -3,7 +3,7 @@ import logo from '../assets/investment-calculator-logo.png' ;
 
 export default function Header() {
 
-    return <header>
+    return <header id="header">
 
     <img src={logo} />
 
@@ -13,3 +13,5 @@ export default function Header() {
 
 
 }
+
+
