@@ -25,13 +25,14 @@ function handleChange(inputIdentifier, newValue){
       return {
 
           ...prevUserInput,
-          [inputIdentifier]: newValue
+          [inputIdentifier]: +newValue
 
       }
   }
   );
 }
 
+const inputIsValid = userInput.initialInvestment > 0 && userInput.annualInvestment > 0 && userInput.expectedReturn > 0 && userInput.duration > 0;
   
   return (
    
@@ -39,7 +40,10 @@ function handleChange(inputIdentifier, newValue){
    
    <Header />
    <UserInput userInput={userInput} onChange={handleChange}/>
-   <Results input={userInput}/>
+  
+  {!inputIsValid && <p class="center">Please enter valid input</p>}
+
+  { inputIsValid && <Results input={userInput}/>}
    
    
    </>
